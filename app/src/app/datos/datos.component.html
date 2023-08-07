@@ -1,0 +1,23 @@
+<button id="btn-menu" (click)="logOut()">Cerrar sesión</button>
+<div style="margin-left: auto; margin-right: auto; width: 29vw;">
+    <p>Exportaciones de bienes en millones de dolares</p>
+    <div>
+        <input type="number" #input style="margin-left: 7.5vw; width: 14.5vw;" placeholder="Monto mínimo en millones">
+        <button (click)="filtrar(input.value)">Buscar</button>
+    </div>
+    <p style="color: red; margin-left: 11vw;">{{error}}</p>
+    <table>
+        <thead>
+            <tr>
+                <th class="centrao">Fecha</th>
+                <th class="centrao">Monto</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of lista; let i = index" [attr.data-index]="i">
+                <td class="centrao">{{lista[i][0]}}</td>
+                <td class="centrao">{{lista[i][1]}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
